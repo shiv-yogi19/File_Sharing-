@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FluxDrop — Drop. Connect. Transfer.</title>
+<meta name="theme-color" content="#05060f"><link rel="icon" href="logo.svg"><link rel="stylesheet" href="style.css">
+</head><body>
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+<main>
+<section id="splash" class="screen" aria-live="polite"><h1 id="st"></h1></section>
+
+<section id="onboard" class="screen" hidden><div class="card">
+<img src="logo.svg" width="72" height="72" alt="">
+<h2>Hello 👋</h2>
+<form id="nf"><label for="nm">What should we call you?</label>
+<input id="nm" maxlength="24" placeholder="Enter your name" required autocomplete="nickname">
+<p class="note">Your FluxDrop identity automatically expires after 48 hours. After expiration, you will need to create a new identity.</p>
+<button class="btn">Continue</button></form></div></section>
+
+<section id="dash" class="screen" hidden><div class="card">
+<header><img src="logo.svg" width="44" height="44" alt=""><div><h1>FLUXDROP</h1><small>Created By Shiv Yogi</small></div></header>
+<p class="pill"><b id="me-id"></b> · <span id="me-left"></span></p>
+<button class="btn big" id="b-drop">📤 FILE DROP</button>
+<button class="btn big" id="b-join">🔗 JOIN ROOM</button>
+<nav><button data-info="identity">Identity</button><button data-info="privacy">Privacy</button><button data-info="settings">Settings</button><button data-info="about">About</button></nav>
+</div></section>
+
+<section id="drop" class="screen" hidden><div class="card">
+<h2>FILE DROP</h2>
+<div id="zone" tabindex="0" role="button" aria-label="Choose files">Tap to choose files<br><small>or drag &amp; drop here</small></div>
+<input id="pick" type="file" multiple hidden>
+<ul id="flist"></ul><p id="ftot"></p>
+<button class="btn" id="b-create" disabled>CREATE LIVE ROOM</button>
+<button class="ghost" data-back>Back</button></div></section>
+
+<section id="room" class="screen" hidden><div class="card">
+<h2>LIVE ROOM</h2>
+<div id="code" aria-label="Join code"></div>
+<p id="rstate" class="pill">Waiting for devices...</p>
+<div class="row"><button class="btn sm" id="b-copy">Copy Code</button><button class="btn sm" id="b-share">Share</button><button class="btn sm danger" id="b-leave">Leave Room</button></div>
+<p id="wmnote" class="note"></p>
+<h3 id="dev">Connected Devices: 0</h3><div id="peers"></div></div></section>
+
+<section id="join" class="screen" hidden><div class="card">
+<h2>JOIN ROOM</h2>
+<form id="jf"><label for="jc">Enter 6-digit Join Code</label>
+<input id="jc" inputmode="numeric" pattern="\d{6}" maxlength="6" placeholder="000000" autocomplete="off" required>
+<button class="btn">Join</button></form>
+<button class="ghost" data-back>Back</button></div></section>
+
+<section id="conn" class="screen" hidden><div class="card">
+<h2 id="cstate">Connecting...</h2><div id="rfiles"></div>
+<button class="ghost" id="b-rleave">Leave</button></div></section>
+
+<section id="info" class="screen" hidden><div class="card">
+<div id="i-identity" hidden><h2>Identity</h2><p>ID: <b id="i-id"></b></p><p id="i-left"></p><p class="note">Generated in your browser. Expires 48 hours after creation.</p><button class="btn sm danger" id="b-reset">Delete identity now</button></div>
+<div id="i-privacy" hidden><h2>Privacy First</h2><ul class="plain"><li>Files are transferred peer-to-peer.</li><li>Files are not permanently stored on FluxDrop servers.</li><li>Signaling servers do not receive file contents.</li><li>Temporary identity expires after 48 hours.</li><li>Room information is temporary.</li><li>WebRTC connections are encrypted.</li><li>Application-level encryption is used.</li><li>Encryption keys are not stored on the server.</li></ul></div>
+<div id="i-settings" hidden><h2>Settings</h2><label class="chk"><input type="checkbox" id="s-wm"> Watermark images (JPG/PNG/WebP) with “Created By Shiv Yogi”</label><p class="note">PDF, video and other files are sent as the untouched original — browser-side watermarking is not implemented for them.</p></div>
+<div id="i-about" hidden><h2>About</h2><p>FluxDrop — Drop. Connect. Transfer.</p><p>Created By Shiv Yogi</p></div>
+<button class="ghost" data-back>Back</button></div></section>
+</main>
+<div id="toast" role="alert" hidden></div>
+<script type="module" src="app.js"></script>
+</body></html>
