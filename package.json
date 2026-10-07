@@ -1,0 +1,8 @@
+{
+  "name": "fluxdrop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FluxDrop - Drop. Connect. Transfer. Created By Shiv Yogi",
+  "scripts": { "dev": "wrangler dev", "deploy": "wrangler deploy" },
+  "devDependencies": { "wrangler": "^4" }
+}
